@@ -6,8 +6,10 @@ class Api::V1::AnimalsController < ApplicationController
   end
 
   def create
-    # this should create a new animal from params
-    # when it's done, it should render the json of the new animal
+    species = Species.find_or_create_by(name: params[:species_name])
+    animal = species.animals.create(name: params[:animal_name])
+    render json: animal
   end
+
 
 end

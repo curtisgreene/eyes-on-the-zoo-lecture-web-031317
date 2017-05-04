@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :animals, only: [:index]
-      post '/animals', to: 'animals#create'
+      resources :animals, only: [:index, :create]
+
       # resources :posts do
       #   resources :comments
       # end
